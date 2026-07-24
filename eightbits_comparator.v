@@ -9,8 +9,8 @@ module eightbits_comparator(
 reg [7:0] a_signed, b_signed;
 always @(*) begin
     if (sign) begin
-        a_signed = ~a;
-        b_signed = ~b;
+        a_signed = (a^8'b10000000);
+        b_signed = (b^8'b10000000);
     end
     else begin
         a_signed = a;
