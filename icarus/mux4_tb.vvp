@@ -1,0 +1,99 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "D:\iverilog\lib\ivl\system.vpi";
+:vpi_module "D:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "D:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "D:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "D:\iverilog\lib\ivl\va_math.vpi";
+:vpi_module "D:\iverilog\lib\ivl\v2009.vpi";
+S_00000227ebd465f0 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_00000227ebd46780 .scope module, "mux4_tb" "mux4_tb" 3 12;
+ .timescale -9 -12;
+v00000227ebd43940_0 .var "a1", 7 0;
+v00000227ebd446b0_0 .var "a2", 7 0;
+v00000227ebd44750_0 .var "b1", 7 0;
+v00000227ebd44930_0 .var "b2", 7 0;
+v00000227ebd43d50_0 .var "s0", 0 0;
+v00000227ebd43a30_0 .var "s1", 0 0;
+v00000227ebd447f0_0 .net "y", 7 0, L_00000227ebd444d0;  1 drivers
+v00000227ebd43c10_0 .net "y0", 7 0, L_00000227ebd441b0;  1 drivers
+v00000227ebd44430_0 .net "y1", 7 0, L_00000227ebd43f30;  1 drivers
+S_00000227ebd12ca0 .scope module, "mux4_s0" "mux2" 3 18, 3 2 0, S_00000227ebd46780;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 8 "a";
+    .port_info 1 /INPUT 8 "b";
+    .port_info 2 /INPUT 1 "select";
+    .port_info 3 /OUTPUT 8 "y";
+P_00000227ebd48a50 .param/l "WIDTH" 0 3 3, +C4<00000000000000000000000000001000>;
+v00000227ebd36f90_0 .net "a", 7 0, v00000227ebd43940_0;  1 drivers
+v00000227ebd12e30_0 .net "b", 7 0, v00000227ebd44750_0;  1 drivers
+v00000227ebd12ed0_0 .net "select", 0 0, v00000227ebd43d50_0;  1 drivers
+v00000227ebd12f70_0 .net "y", 7 0, L_00000227ebd441b0;  alias, 1 drivers
+L_00000227ebd441b0 .functor MUXZ 8, v00000227ebd43940_0, v00000227ebd44750_0, v00000227ebd43d50_0, C4<>;
+S_00000227ebd431c0 .scope module, "mux4_s1" "mux2" 3 28, 3 2 0, S_00000227ebd46780;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 8 "a";
+    .port_info 1 /INPUT 8 "b";
+    .port_info 2 /INPUT 1 "select";
+    .port_info 3 /OUTPUT 8 "y";
+P_00000227ebd48a90 .param/l "WIDTH" 0 3 3, +C4<00000000000000000000000000001000>;
+v00000227ebd13010_0 .net "a", 7 0, v00000227ebd446b0_0;  1 drivers
+v00000227ebd43350_0 .net "b", 7 0, v00000227ebd44930_0;  1 drivers
+v00000227ebd433f0_0 .net "select", 0 0, v00000227ebd43d50_0;  alias, 1 drivers
+v00000227ebd43490_0 .net "y", 7 0, L_00000227ebd43f30;  alias, 1 drivers
+L_00000227ebd43f30 .functor MUXZ 8, v00000227ebd446b0_0, v00000227ebd44930_0, v00000227ebd43d50_0, C4<>;
+S_00000227ebd43530 .scope module, "mux4_y" "mux2" 3 37, 3 2 0, S_00000227ebd46780;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 8 "a";
+    .port_info 1 /INPUT 8 "b";
+    .port_info 2 /INPUT 1 "select";
+    .port_info 3 /OUTPUT 8 "y";
+P_00000227ebd48b50 .param/l "WIDTH" 0 3 3, +C4<00000000000000000000000000001000>;
+v00000227ebd436c0_0 .net "a", 7 0, L_00000227ebd441b0;  alias, 1 drivers
+v00000227ebd43760_0 .net "b", 7 0, L_00000227ebd43f30;  alias, 1 drivers
+v00000227ebd43800_0 .net "select", 0 0, v00000227ebd43a30_0;  1 drivers
+v00000227ebd438a0_0 .net "y", 7 0, L_00000227ebd444d0;  alias, 1 drivers
+L_00000227ebd444d0 .functor MUXZ 8, L_00000227ebd441b0, L_00000227ebd43f30, v00000227ebd43a30_0, C4<>;
+    .scope S_00000227ebd46780;
+T_0 ;
+    %vpi_call/w 3 45 "$monitor", "y=%8b", v00000227ebd447f0_0 {0 0 0};
+    %pushi/vec4 0, 0, 8;
+    %store/vec4 v00000227ebd43940_0, 0, 8;
+    %pushi/vec4 1, 0, 8;
+    %store/vec4 v00000227ebd44750_0, 0, 8;
+    %pushi/vec4 2, 0, 8;
+    %store/vec4 v00000227ebd446b0_0, 0, 8;
+    %pushi/vec4 3, 0, 8;
+    %store/vec4 v00000227ebd44930_0, 0, 8;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000227ebd43d50_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000227ebd43a30_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000227ebd43d50_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000227ebd43a30_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000227ebd43d50_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000227ebd43a30_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000227ebd43d50_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000227ebd43a30_0, 0, 1;
+    %delay 10000, 0;
+    %vpi_call/w 3 65 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "-";
+    "d:/Desktop/FPGA/code/part1/day1/mux2_new_tb.v";

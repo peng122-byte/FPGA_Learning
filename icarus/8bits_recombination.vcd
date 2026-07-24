@@ -1,0 +1,36 @@
+$date
+	Mon Jul 20 01:08:31 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module _8bits_recombination_tb $end
+$var wire 8 ! swapped [7:0] $end
+$var wire 4 " MSB [3:0] $end
+$var wire 4 # LSB [3:0] $end
+$var reg 8 $ data_in [7:0] $end
+$scope module dut $end
+$var wire 8 % data_in [7:0] $end
+$var wire 8 & swapped [7:0] $end
+$var wire 4 ' MSB [3:0] $end
+$var wire 4 ( LSB [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#4000000
+$dumpvars
+b0 (
+b1001 '
+b1001 &
+b10010000 %
+b10010000 $
+b0 #
+b1001 "
+b1001 !
+$end

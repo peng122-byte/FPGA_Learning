@@ -1,0 +1,68 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "D:\iverilog\lib\ivl\system.vpi";
+:vpi_module "D:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "D:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "D:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "D:\iverilog\lib\ivl\va_math.vpi";
+:vpi_module "D:\iverilog\lib\ivl\v2009.vpi";
+S_00000267b8314f80 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_00000267b83257a0 .scope module, "nand_gate_tb" "nand_gate_tb" 3 11;
+ .timescale -8 -12;
+v00000267b8315110_0 .var "a", 0 0;
+v00000267b83151b0_0 .var "b", 0 0;
+v00000267b8323cd0_0 .net "y", 0 0, L_00000267b82f3200;  1 drivers
+S_00000267b8325930 .scope module, "dut" "nand_gate" 3 14, 3 3 0, S_00000267b83257a0;
+ .timescale -8 -12;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "y";
+L_00000267b82f30a0 .functor AND 1, v00000267b8315110_0, v00000267b83151b0_0, C4<1>, C4<1>;
+L_00000267b82f3200 .functor NOT 1, L_00000267b82f30a0, C4<0>, C4<0>, C4<0>;
+v00000267b82f3400_0 .net *"_ivl_0", 0 0, L_00000267b82f30a0;  1 drivers
+v00000267b82dbc60_0 .net "a", 0 0, v00000267b8315110_0;  1 drivers
+v00000267b8325ac0_0 .net "b", 0 0, v00000267b83151b0_0;  1 drivers
+v00000267b8325b60_0 .net "y", 0 0, L_00000267b82f3200;  alias, 1 drivers
+    .scope S_00000267b83257a0;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000267b8315110_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000267b83151b0_0, 0, 1;
+    %delay 100000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000267b8315110_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000267b83151b0_0, 0, 1;
+    %delay 100000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000267b8315110_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000267b83151b0_0, 0, 1;
+    %delay 100000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000267b8315110_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000267b83151b0_0, 0, 1;
+    %delay 100000, 0;
+    %vpi_call/w 3 37 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_00000267b83257a0;
+T_1 ;
+    %vpi_call/w 3 41 "$monitor", "time=%0t a=%b b=%b y=%b", $time, v00000267b8315110_0, v00000267b83151b0_0, v00000267b8323cd0_0 {0 0 0};
+    %vpi_call/w 3 42 "$dumpfile", "icarus/nand_gate.vcd" {0 0 0};
+    %vpi_call/w 3 43 "$dumpvars", 32'sb00000000000000000000000000000000, S_00000267b83257a0 {0 0 0};
+    %delay 20000000, 0;
+    %vpi_call/w 3 44 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "-";
+    "d:/Desktop/FPGA/code/part1/day1/NAND.v";

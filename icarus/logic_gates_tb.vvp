@@ -1,0 +1,170 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "D:\iverilog\lib\ivl\system.vpi";
+:vpi_module "D:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "D:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "D:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "D:\iverilog\lib\ivl\va_math.vpi";
+:vpi_module "D:\iverilog\lib\ivl\v2009.vpi";
+S_000002be7eadafe0 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_000002be7eadbe50 .scope module, "logic_gates_tb" "logic_gates_tb" 3 18;
+ .timescale -7 -12;
+v000002be7eaf2de0_0 .var "a", 0 0;
+v000002be7eaf2e80_0 .var "b", 0 0;
+v000002be7eaf2f20_0 .var/i "errors", 31 0;
+v000002be7eaf2fc0_0 .net "y_and", 0 0, L_000002be7eb2b840;  1 drivers
+v000002be7eaf3060_0 .net "y_not", 0 0, L_000002be7eb2b920;  1 drivers
+v000002be7eb18f80_0 .net "y_or", 0 0, L_000002be7eb2b8b0;  1 drivers
+v000002be7eb247f0_0 .net "y_xor", 0 0, L_000002be7eb2ba00;  1 drivers
+S_000002be7eadbfe0 .scope module, "dut" "logic_gates" 3 22, 3 3 0, S_000002be7eadbe50;
+ .timescale -7 -12;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "y_and";
+    .port_info 3 /OUTPUT 1 "y_or";
+    .port_info 4 /OUTPUT 1 "y_not";
+    .port_info 5 /OUTPUT 1 "y_xor";
+L_000002be7eb2b840 .functor AND 1, v000002be7eaf2de0_0, v000002be7eaf2e80_0, C4<1>, C4<1>;
+L_000002be7eb2b8b0 .functor OR 1, v000002be7eaf2de0_0, v000002be7eaf2e80_0, C4<0>, C4<0>;
+L_000002be7eb2b920 .functor NOT 1, v000002be7eaf2de0_0, C4<0>, C4<0>, C4<0>;
+L_000002be7eb2ba00 .functor XOR 1, v000002be7eaf2de0_0, v000002be7eaf2e80_0, C4<0>, C4<0>;
+v000002be7eaf3460_0 .net "a", 0 0, v000002be7eaf2de0_0;  1 drivers
+v000002be7eadb170_0 .net "b", 0 0, v000002be7eaf2e80_0;  1 drivers
+v000002be7eadc800_0 .net "y_and", 0 0, L_000002be7eb2b840;  alias, 1 drivers
+v000002be7eadb2c0_0 .net "y_not", 0 0, L_000002be7eb2b920;  alias, 1 drivers
+v000002be7eaf2ca0_0 .net "y_or", 0 0, L_000002be7eb2b8b0;  alias, 1 drivers
+v000002be7eaf2d40_0 .net "y_xor", 0 0, L_000002be7eb2ba00;  alias, 1 drivers
+    .scope S_000002be7eadbe50;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002be7eaf2de0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002be7eaf2e80_0, 0, 1;
+    %delay 1000000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002be7eaf2de0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002be7eaf2e80_0, 0, 1;
+    %delay 1000000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002be7eaf2de0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002be7eaf2e80_0, 0, 1;
+    %delay 1000000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002be7eaf2de0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002be7eaf2e80_0, 0, 1;
+    %delay 1000000, 0;
+    %vpi_call/w 3 47 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_000002be7eadbe50;
+T_1 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v000002be7eaf2f20_0, 0, 32;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002be7eaf2de0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002be7eaf2e80_0, 0, 1;
+    %delay 1000000, 0;
+    %load/vec4 v000002be7eaf2fc0_0;
+    %load/vec4 v000002be7eb18f80_0;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v000002be7eb247f0_0;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v000002be7eaf3060_0;
+    %concat/vec4; draw_concat_vec4
+    %cmpi/ne 9, 0, 4;
+    %jmp/0xz  T_1.0, 6;
+    %load/vec4 v000002be7eaf2f20_0;
+    %addi 1, 0, 32;
+    %store/vec4 v000002be7eaf2f20_0, 0, 32;
+T_1.0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002be7eaf2de0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002be7eaf2e80_0, 0, 1;
+    %delay 1000000, 0;
+    %load/vec4 v000002be7eaf2fc0_0;
+    %load/vec4 v000002be7eb18f80_0;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v000002be7eb247f0_0;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v000002be7eaf3060_0;
+    %concat/vec4; draw_concat_vec4
+    %cmpi/ne 7, 0, 4;
+    %jmp/0xz  T_1.2, 6;
+    %load/vec4 v000002be7eaf2f20_0;
+    %addi 1, 0, 32;
+    %store/vec4 v000002be7eaf2f20_0, 0, 32;
+T_1.2 ;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002be7eaf2de0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002be7eaf2e80_0, 0, 1;
+    %delay 1000000, 0;
+    %load/vec4 v000002be7eaf2fc0_0;
+    %load/vec4 v000002be7eb18f80_0;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v000002be7eb247f0_0;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v000002be7eaf3060_0;
+    %concat/vec4; draw_concat_vec4
+    %cmpi/ne 6, 0, 4;
+    %jmp/0xz  T_1.4, 6;
+    %load/vec4 v000002be7eaf2f20_0;
+    %addi 1, 0, 32;
+    %store/vec4 v000002be7eaf2f20_0, 0, 32;
+T_1.4 ;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002be7eaf2de0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002be7eaf2e80_0, 0, 1;
+    %delay 1000000, 0;
+    %load/vec4 v000002be7eaf2fc0_0;
+    %load/vec4 v000002be7eb18f80_0;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v000002be7eb247f0_0;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v000002be7eaf3060_0;
+    %concat/vec4; draw_concat_vec4
+    %cmpi/ne 12, 0, 4;
+    %jmp/0xz  T_1.6, 6;
+    %load/vec4 v000002be7eaf2f20_0;
+    %addi 1, 0, 32;
+    %store/vec4 v000002be7eaf2f20_0, 0, 32;
+T_1.6 ;
+    %load/vec4 v000002be7eaf2f20_0;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_1.8, 4;
+    %vpi_call/w 3 72 "$display", "PASS: all test cases passed" {0 0 0};
+    %jmp T_1.9;
+T_1.8 ;
+    %vpi_call/w 3 74 "$display", "FAIL: %0d test case(s) failed", v000002be7eaf2f20_0 {0 0 0};
+T_1.9 ;
+    %vpi_call/w 3 76 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_000002be7eadbe50;
+T_2 ;
+    %vpi_call/w 3 80 "$monitor", "time=%0t a=%b b=%b y_and=%b y_or=%b y_not=%b y_xor=%b", $time, v000002be7eaf2de0_0, v000002be7eaf2e80_0, v000002be7eaf2fc0_0, v000002be7eb18f80_0, v000002be7eaf3060_0, v000002be7eb247f0_0 {0 0 0};
+    %end;
+    .thread T_2;
+    .scope S_000002be7eadbe50;
+T_3 ;
+    %vpi_call/w 3 84 "$dumpfile", "icarus/logic_gates.vcd" {0 0 0};
+    %vpi_call/w 3 85 "$dumpvars", 32'sb00000000000000000000000000000000, S_000002be7eadbe50 {0 0 0};
+    %delay 200000000, 0;
+    %vpi_call/w 3 86 "$finish" {0 0 0};
+    %end;
+    .thread T_3;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "-";
+    "d:/Desktop/FPGA/code/part1/day1/logic_gates_tb.v";
