@@ -1,0 +1,58 @@
+$date
+	Fri Jul 24 15:16:35 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module add_sub4_tb $end
+$var wire 1 ! zero $end
+$var wire 4 " result [3:0] $end
+$var wire 1 # carry_out $end
+$var reg 4 $ a [3:0] $end
+$var reg 4 % b [3:0] $end
+$var reg 1 & subtract $end
+$var integer 32 ' errors [31:0] $end
+$scope module dut $end
+$var wire 4 ( a [3:0] $end
+$var wire 4 ) b [3:0] $end
+$var wire 4 * b_selected [3:0] $end
+$var wire 1 & subtract $end
+$var wire 1 ! zero $end
+$var wire 4 + result [3:0] $end
+$var wire 5 , full_result [4:0] $end
+$var wire 1 # carry_out $end
+$upscope $end
+$scope task check $end
+$var reg 5 - expected_full [4:0] $end
+$var reg 4 . test_a [3:0] $end
+$var reg 4 / test_b [3:0] $end
+$var reg 1 0 test_subtract $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#60000
+$dumpvars
+10
+b111 /
+b111 .
+b10000 -
+b10000 ,
+b0 +
+b1000 *
+b111 )
+b111 (
+b0 '
+1&
+b111 %
+b111 $
+1#
+b0 "
+1!
+$end
+#2060000

@@ -1,0 +1,60 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "D:\iverilog\lib\ivl\system.vpi";
+:vpi_module "D:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "D:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "D:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "D:\iverilog\lib\ivl\va_math.vpi";
+:vpi_module "D:\iverilog\lib\ivl\v2009.vpi";
+S_0000016a4f58c8d0 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0000016a4f58ca60 .scope module, "add_sub4" "add_sub4" 3 2;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 4 "a";
+    .port_info 1 /INPUT 4 "b";
+    .port_info 2 /INPUT 1 "subtract";
+    .port_info 3 /OUTPUT 4 "sum";
+    .port_info 4 /OUTPUT 1 "carry_out";
+    .port_info 5 /OUTPUT 1 "zero";
+o0000016a4f5e11b8 .functor BUFZ 4, C4<zzzz>; HiZ drive
+L_0000016a4f5d8510 .functor XOR 4, L_0000016a4f625c50, o0000016a4f5e11b8, C4<0000>, C4<0000>;
+v0000016a4f5a33b0_0 .net *"_ivl_0", 3 0, L_0000016a4f625c50;  1 drivers
+v0000016a4f58cbf0_0 .net *"_ivl_10", 4 0, L_0000016a4f626150;  1 drivers
+v0000016a4f5a2ca0_0 .net *"_ivl_12", 4 0, L_0000016a4f626010;  1 drivers
+v0000016a4f5a2d40_0 .net *"_ivl_14", 4 0, L_0000016a4f625cf0;  1 drivers
+L_0000016a4f6268e8 .functor BUFT 1, C4<0000>, C4<0>, C4<0>, C4<0>;
+v0000016a4f5a2de0_0 .net *"_ivl_17", 3 0, L_0000016a4f6268e8;  1 drivers
+L_0000016a4f626930 .functor BUFT 1, C4<0000>, C4<0>, C4<0>, C4<0>;
+v0000016a4f5a2e80_0 .net/2u *"_ivl_24", 3 0, L_0000016a4f626930;  1 drivers
+L_0000016a4f626858 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0000016a4f5a2f20_0 .net/2u *"_ivl_4", 0 0, L_0000016a4f626858;  1 drivers
+v0000016a4f5a2fc0_0 .net *"_ivl_6", 4 0, L_0000016a4f6259d0;  1 drivers
+L_0000016a4f6268a0 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0000016a4f5a3060_0 .net/2u *"_ivl_8", 0 0, L_0000016a4f6268a0;  1 drivers
+o0000016a4f5e1188 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v0000016a4f5d4820_0 .net "a", 3 0, o0000016a4f5e1188;  0 drivers
+v0000016a4f625ed0_0 .net "b", 3 0, o0000016a4f5e11b8;  0 drivers
+v0000016a4f6266f0_0 .net "b_selected", 3 0, L_0000016a4f5d8510;  1 drivers
+v0000016a4f626470_0 .net "carry_out", 0 0, L_0000016a4f625b10;  1 drivers
+v0000016a4f625890_0 .net "full_result", 4 0, L_0000016a4f625a70;  1 drivers
+o0000016a4f5e1278 .functor BUFZ 1, C4<z>; HiZ drive
+v0000016a4f625f70_0 .net "subtract", 0 0, o0000016a4f5e1278;  0 drivers
+v0000016a4f625930_0 .net "sum", 3 0, L_0000016a4f6260b0;  1 drivers
+v0000016a4f625bb0_0 .net "zero", 0 0, L_0000016a4f6261f0;  1 drivers
+L_0000016a4f625c50 .concat [ 1 1 1 1], o0000016a4f5e1278, o0000016a4f5e1278, o0000016a4f5e1278, o0000016a4f5e1278;
+L_0000016a4f6259d0 .concat [ 4 1 0 0], o0000016a4f5e1188, L_0000016a4f626858;
+L_0000016a4f626150 .concat [ 4 1 0 0], L_0000016a4f5d8510, L_0000016a4f6268a0;
+L_0000016a4f626010 .arith/sum 5, L_0000016a4f6259d0, L_0000016a4f626150;
+L_0000016a4f625cf0 .concat [ 1 4 0 0], o0000016a4f5e1278, L_0000016a4f6268e8;
+L_0000016a4f625a70 .arith/sum 5, L_0000016a4f626010, L_0000016a4f625cf0;
+L_0000016a4f6260b0 .part L_0000016a4f625a70, 0, 4;
+L_0000016a4f625b10 .part L_0000016a4f625a70, 4, 1;
+L_0000016a4f6261f0 .cmp/eq 4, L_0000016a4f6260b0, L_0000016a4f626930;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "-";
+    "d:/Desktop/FPGA/code/part1/day1/add_sub4_tb.v";

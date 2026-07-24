@@ -1,0 +1,174 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "D:\iverilog\lib\ivl\system.vpi";
+:vpi_module "D:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "D:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "D:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "D:\iverilog\lib\ivl\va_math.vpi";
+:vpi_module "D:\iverilog\lib\ivl\v2009.vpi";
+S_000001ce94e17080 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_000001ce94e17210 .scope module, "add_sub4_tb" "add_sub4_tb" 3 26;
+ .timescale -9 -12;
+v000001ce94e6d0f0_0 .var "a", 3 0;
+v000001ce94e6cfb0_0 .var "b", 3 0;
+v000001ce94e6ca10_0 .net "carry_out", 0 0, L_000001ce94eb7e50;  1 drivers
+v000001ce94e6cd30_0 .var/i "errors", 31 0;
+v000001ce94e6d5f0_0 .net "result", 3 0, L_000001ce94e6d4b0;  1 drivers
+v000001ce94e6d230_0 .var "subtract", 0 0;
+v000001ce94e6cbf0_0 .net "zero", 0 0, L_000001ce94eb88f0;  1 drivers
+S_000001ce94de2ca0 .scope task, "check" "check" 3 46, 3 46 0, S_000001ce94e17210;
+ .timescale -9 -12;
+v000001ce94de33b0_0 .var "expected_full", 4 0;
+v000001ce94dccc30_0 .var "test_a", 3 0;
+v000001ce94de2e30_0 .var "test_b", 3 0;
+v000001ce94de2ed0_0 .var "test_subtract", 0 0;
+TD_add_sub4_tb.check ;
+    %load/vec4 v000001ce94dccc30_0;
+    %store/vec4 v000001ce94e6d0f0_0, 0, 4;
+    %load/vec4 v000001ce94de2e30_0;
+    %store/vec4 v000001ce94e6cfb0_0, 0, 4;
+    %load/vec4 v000001ce94de2ed0_0;
+    %store/vec4 v000001ce94e6d230_0, 0, 1;
+    %delay 10000, 0;
+    %load/vec4 v000001ce94e6ca10_0;
+    %load/vec4 v000001ce94e6d5f0_0;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v000001ce94de33b0_0;
+    %cmp/ne;
+    %jmp/0xz  T_0.0, 6;
+    %vpi_call/w 3 58 "$display", "ERROR: a=%h b=%h sub=%b expected=%b_%h got=%b_%h", v000001ce94e6d0f0_0, v000001ce94e6cfb0_0, v000001ce94e6d230_0, &PV<v000001ce94de33b0_0, 4, 1>, &PV<v000001ce94de33b0_0, 0, 4>, v000001ce94e6ca10_0, v000001ce94e6d5f0_0 {0 0 0};
+    %load/vec4 v000001ce94e6cd30_0;
+    %addi 1, 0, 32;
+    %store/vec4 v000001ce94e6cd30_0, 0, 32;
+T_0.0 ;
+    %load/vec4 v000001ce94e6cbf0_0;
+    %load/vec4 v000001ce94de33b0_0;
+    %parti/s 4, 0, 2;
+    %pushi/vec4 0, 0, 4;
+    %cmp/e;
+    %flag_get/vec4 4;
+    %cmp/ne;
+    %jmp/0xz  T_0.2, 6;
+    %vpi_call/w 3 68 "$display", "ERROR: incorrect zero flag" {0 0 0};
+    %load/vec4 v000001ce94e6cd30_0;
+    %addi 1, 0, 32;
+    %store/vec4 v000001ce94e6cd30_0, 0, 32;
+T_0.2 ;
+    %end;
+S_000001ce94de2f70 .scope module, "dut" "add_sub4" 3 37, 3 2 0, S_000001ce94e17210;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 4 "a";
+    .port_info 1 /INPUT 4 "b";
+    .port_info 2 /INPUT 1 "subtract";
+    .port_info 3 /OUTPUT 4 "result";
+    .port_info 4 /OUTPUT 1 "carry_out";
+    .port_info 5 /OUTPUT 1 "zero";
+L_000001ce94e6ef40 .functor XOR 4, L_000001ce94e6cf10, v000001ce94e6cfb0_0, C4<0000>, C4<0000>;
+v000001ce94e147f0_0 .net *"_ivl_0", 3 0, L_000001ce94e6cf10;  1 drivers
+v000001ce94e14890_0 .net *"_ivl_10", 4 0, L_000001ce94e6d050;  1 drivers
+v000001ce94e14930_0 .net *"_ivl_12", 4 0, L_000001ce94e6d2d0;  1 drivers
+v000001ce94e149d0_0 .net *"_ivl_14", 4 0, L_000001ce94e6d370;  1 drivers
+L_000001ce94e6f668 .functor BUFT 1, C4<0000>, C4<0>, C4<0>, C4<0>;
+v000001ce94e14a70_0 .net *"_ivl_17", 3 0, L_000001ce94e6f668;  1 drivers
+L_000001ce94e6f6b0 .functor BUFT 1, C4<0000>, C4<0>, C4<0>, C4<0>;
+v000001ce94e14b10_0 .net/2u *"_ivl_24", 3 0, L_000001ce94e6f6b0;  1 drivers
+L_000001ce94e6f5d8 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v000001ce94e6cab0_0 .net/2u *"_ivl_4", 0 0, L_000001ce94e6f5d8;  1 drivers
+v000001ce94e6cb50_0 .net *"_ivl_6", 4 0, L_000001ce94e6cc90;  1 drivers
+L_000001ce94e6f620 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v000001ce94e6d7d0_0 .net/2u *"_ivl_8", 0 0, L_000001ce94e6f620;  1 drivers
+v000001ce94e6cdd0_0 .net "a", 3 0, v000001ce94e6d0f0_0;  1 drivers
+v000001ce94e6d550_0 .net "b", 3 0, v000001ce94e6cfb0_0;  1 drivers
+v000001ce94e6ce70_0 .net "b_selected", 3 0, L_000001ce94e6ef40;  1 drivers
+v000001ce94e6d690_0 .net "carry_out", 0 0, L_000001ce94eb7e50;  alias, 1 drivers
+v000001ce94e6d730_0 .net "full_result", 4 0, L_000001ce94e6d410;  1 drivers
+v000001ce94e6d190_0 .net "result", 3 0, L_000001ce94e6d4b0;  alias, 1 drivers
+v000001ce94e6c8d0_0 .net "subtract", 0 0, v000001ce94e6d230_0;  1 drivers
+v000001ce94e6c970_0 .net "zero", 0 0, L_000001ce94eb88f0;  alias, 1 drivers
+L_000001ce94e6cf10 .concat [ 1 1 1 1], v000001ce94e6d230_0, v000001ce94e6d230_0, v000001ce94e6d230_0, v000001ce94e6d230_0;
+L_000001ce94e6cc90 .concat [ 4 1 0 0], v000001ce94e6d0f0_0, L_000001ce94e6f5d8;
+L_000001ce94e6d050 .concat [ 4 1 0 0], L_000001ce94e6ef40, L_000001ce94e6f620;
+L_000001ce94e6d2d0 .arith/sum 5, L_000001ce94e6cc90, L_000001ce94e6d050;
+L_000001ce94e6d370 .concat [ 1 4 0 0], v000001ce94e6d230_0, L_000001ce94e6f668;
+L_000001ce94e6d410 .arith/sum 5, L_000001ce94e6d2d0, L_000001ce94e6d370;
+L_000001ce94e6d4b0 .part L_000001ce94e6d410, 0, 4;
+L_000001ce94eb7e50 .part L_000001ce94e6d410, 4, 1;
+L_000001ce94eb88f0 .cmp/eq 4, L_000001ce94e6d4b0, L_000001ce94e6f6b0;
+    .scope S_000001ce94e17210;
+T_1 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v000001ce94e6cd30_0, 0, 32;
+    %pushi/vec4 3, 0, 4;
+    %store/vec4 v000001ce94dccc30_0, 0, 4;
+    %pushi/vec4 5, 0, 4;
+    %store/vec4 v000001ce94de2e30_0, 0, 4;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001ce94de2ed0_0, 0, 1;
+    %pushi/vec4 8, 0, 5;
+    %store/vec4 v000001ce94de33b0_0, 0, 5;
+    %fork TD_add_sub4_tb.check, S_000001ce94de2ca0;
+    %join;
+    %pushi/vec4 15, 0, 4;
+    %store/vec4 v000001ce94dccc30_0, 0, 4;
+    %pushi/vec4 1, 0, 4;
+    %store/vec4 v000001ce94de2e30_0, 0, 4;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001ce94de2ed0_0, 0, 1;
+    %pushi/vec4 16, 0, 5;
+    %store/vec4 v000001ce94de33b0_0, 0, 5;
+    %fork TD_add_sub4_tb.check, S_000001ce94de2ca0;
+    %join;
+    %pushi/vec4 9, 0, 4;
+    %store/vec4 v000001ce94dccc30_0, 0, 4;
+    %pushi/vec4 4, 0, 4;
+    %store/vec4 v000001ce94de2e30_0, 0, 4;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001ce94de2ed0_0, 0, 1;
+    %pushi/vec4 21, 0, 5;
+    %store/vec4 v000001ce94de33b0_0, 0, 5;
+    %fork TD_add_sub4_tb.check, S_000001ce94de2ca0;
+    %join;
+    %pushi/vec4 4, 0, 4;
+    %store/vec4 v000001ce94dccc30_0, 0, 4;
+    %pushi/vec4 9, 0, 4;
+    %store/vec4 v000001ce94de2e30_0, 0, 4;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001ce94de2ed0_0, 0, 1;
+    %pushi/vec4 11, 0, 5;
+    %store/vec4 v000001ce94de33b0_0, 0, 5;
+    %fork TD_add_sub4_tb.check, S_000001ce94de2ca0;
+    %join;
+    %pushi/vec4 7, 0, 4;
+    %store/vec4 v000001ce94dccc30_0, 0, 4;
+    %pushi/vec4 7, 0, 4;
+    %store/vec4 v000001ce94de2e30_0, 0, 4;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001ce94de2ed0_0, 0, 1;
+    %pushi/vec4 16, 0, 5;
+    %store/vec4 v000001ce94de33b0_0, 0, 5;
+    %fork TD_add_sub4_tb.check, S_000001ce94de2ca0;
+    %join;
+    %load/vec4 v000001ce94e6cd30_0;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_1.0, 4;
+    %vpi_call/w 3 84 "$display", "PASS: all add_sub4 test cases passed" {0 0 0};
+    %jmp T_1.1;
+T_1.0 ;
+    %vpi_call/w 3 86 "$display", "FAIL: %0d add_sub4 error(s)", v000001ce94e6cd30_0 {0 0 0};
+T_1.1 ;
+    %delay 10000, 0;
+    %vpi_call/w 3 88 "$dumpfile", "icarus/add_sub4_tb.vcd" {0 0 0};
+    %vpi_call/w 3 89 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001ce94e17210 {0 0 0};
+    %delay 2000000, 0;
+    %vpi_call/w 3 91 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "-";
+    "d:/Desktop/FPGA/code/part1/day1/add_sub4_tb.v";
