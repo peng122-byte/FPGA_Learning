@@ -12,7 +12,7 @@ assign b_selected = b ^ {8{sub}}; // Invert b for subtraction
 assign full_result = {1'b0, a} + {1'b0, b_selected} + sub; // Add a and b with carry-in as sub
 assign sum = full_result[7:0];
 assign carry_out = full_result[8];
-assign zero = (sum == 8'd0); // Set zero flag if sum is zero
+assign zero = (sum == 8'd00000000); // Set zero flag if sum is zero
 endmodule
 
 
