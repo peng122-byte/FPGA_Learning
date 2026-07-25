@@ -6,21 +6,53 @@ module add_sub8(
     output wire carry_out,
     output wire zero, overflow
 );
-
-
 wire [8:0] full_result;
 wire [7:0] b_selected;
-
 assign b_selected = b ^ {8{sub}}; // Invert b for subtraction
 assign full_result = {1'b0, a} + {1'b0, b_selected} + sub; // Add a and b with carry-in as sub
 assign sum = full_result[7:0];
 assign carry_out = full_result[8];
 assign zero = (sum == 8'd00000000); // Set zero flag if sum is zero
-assign overflow =
-    sub
-    ? ((a[7] ^ b[7]) & (sum[7] ^ a[7]))
-    : (~(a[7] ^ b[7]) & (sum[7] ^ a[7]));
 endmodule
+
+
+module add_sub8_tb;
+    // Testbench code for add_sub8 module
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+endmodule
+
 
 
 
