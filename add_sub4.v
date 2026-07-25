@@ -16,3 +16,5 @@ assign sum = full_result[3:0];
 assign carry_out = full_result[4];
 assign zero = (sum == 4'b0000);
 endmodule
+
+
