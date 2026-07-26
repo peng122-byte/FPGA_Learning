@@ -66,7 +66,7 @@ endtask
     initial begin
         errors = 0;
         a = 8'b00001111; b = 8'b00000001; op = 3'b000; #10; check(8'b00010000, 0, 0); // Addition
-        #10; 
+        
         a = 8'b11111111; b = 8'b00000001; op = 3'b000; #10; check(8'b00000000, 1, 1); // Addition with carry
         a = 8'b00001111; b = 8'b00000001; op = 3'b001; #10; check(8'b00001110, 0, 0); // Subtraction
         a = 8'b01010101; b = 8'b01010101; op = 3'b001; #10; check(8'b00000000, 1, 0); // Equal subtraction
