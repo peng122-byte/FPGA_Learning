@@ -69,12 +69,21 @@ endtask
         #10; 
         a = 8'b11111111; b = 8'b00000001; op = 3'b000; #10; check(8'b00000000, 1, 1); // Addition with carry
         a = 8'b00001111; b = 8'b00000001; op = 3'b001; #10; check(8'b00001110, 0, 0); // Subtraction
+        a = 8'b01010101; b = 8'b01010101; op = 3'b001; #10; check(8'b00000000, 1, 0); // Equal subtraction
+        a = 8'b00000000; b = 8'b00000001; op = 3'b001; #10; check(8'b11111111, 0, 1); // Subtraction with borrow
         a = 8'b00001111; b = 8'b00000001; op = 3'b010; #10; check(8'b00000001, 0, 0); // AND
+        a = 8'b11110000; b = 8'b00001111; op = 3'b010; #10; check(8'b00000000, 1, 0); // AND producing zero
         a = 8'b00001111; b = 8'b00000001; op = 3'b011; #10; check(8'b00001111, 0, 0); // OR
+        a = 8'b00000000; b = 8'b00000000; op = 3'b011; #10; check(8'b00000000, 1, 0); // OR producing zero
         a = 8'b00001111; b = 8'b00000001; op = 3'b100; #10; check(8'b00001110, 0, 0); // XOR
+        a = 8'b10101010; b = 8'b10101010; op = 3'b100; #10; check(8'b00000000, 1, 0); // XOR producing zero
         a = 8'b00001111; b = 8'b00000001; op = 3'b101; #10; check(8'b00000000, 1, 0); // compare
+        a = 8'b00000000; b = 8'b11111111; op = 3'b101; #10; check(8'b00000001, 0, 0); // Compare minimum and maximum
+        a = 8'b11111111; b = 8'b11111111; op = 3'b101; #10; check(8'b00000000, 1, 0); // Compare equal values
         a = 8'b00001111; b = 8'b00000001; op = 3'b110; #10; check(8'b00011110, 0, 0); // Shift left
+        a = 8'b10000000; b = 8'b00000000; op = 3'b110; #10; check(8'b00000000, 1, 0); // Shift left producing zero
         a = 8'b00001111; b = 8'b00000001; op = 3'b111; #10; check(8'b00000111, 0, 0); // Shift right
+        a = 8'b00000001; b = 8'b00000000; op = 3'b111; #10; check(8'b00000000, 1, 0); // Shift right producing zero
         if(errors == 0) begin
             $display("All tests passed!");
         end else begin
