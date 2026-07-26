@@ -15,7 +15,7 @@ always @(*) begin
         3'b010: result = a & b;               // AND
         3'b011: result = a | b;               // OR
         3'b100: result = a ^ b;               // XOR
-        3'b101: result = ~a;                  // NOT
+        3'b101: result = (a < b);             //compare
         3'b110: result = a << 1;              // Shift left
         3'b111: result = a >> 1;              // Shift right
         default: result = 8'b00000000;
@@ -72,7 +72,7 @@ endtask
         a = 8'b00001111; b = 8'b00000001; op = 3'b010; #10; check(8'b00000001, 0, 0); // AND
         a = 8'b00001111; b = 8'b00000001; op = 3'b011; #10; check(8'b00001111, 0, 0); // OR
         a = 8'b00001111; b = 8'b00000001; op = 3'b100; #10; check(8'b00001110, 0, 0); // XOR
-        a = 8'b00001111; b = 8'b00000001; op = 3'b101; #10; check(8'b11110000, 0, 0); // NOT
+        a = 8'b00001111; b = 8'b00000001; op = 3'b101; #10; check(8'b00000000, 1, 0); // compare
         a = 8'b00001111; b = 8'b00000001; op = 3'b110; #10; check(8'b00011110, 0, 0); // Shift left
         a = 8'b00001111; b = 8'b00000001; op = 3'b111; #10; check(8'b00000111, 0, 0); // Shift right
         if(errors == 0) begin
@@ -80,7 +80,7 @@ endtask
         end else begin
             $display("%d tests failed.", errors);
         end 
-
+    $finish;
 
 end
 endmodule
