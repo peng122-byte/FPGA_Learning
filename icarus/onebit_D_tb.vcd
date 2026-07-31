@@ -1,0 +1,46 @@
+$date
+	Fri Jul 31 22:03:46 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module onebit_D_tb $end
+$var wire 1 ! q $end
+$var reg 1 " clk $end
+$var reg 1 # d $end
+$var reg 1 $ enable $end
+$var reg 1 % reset $end
+$var reg 1 & reset_n $end
+$var integer 32 ' errors [31:0] $end
+$scope module dut $end
+$var wire 1 " clk $end
+$var wire 1 # d $end
+$var wire 1 $ enable $end
+$var wire 1 % reset $end
+$var wire 1 & reset_n $end
+$var reg 1 ! q $end
+$upscope $end
+$scope task check_q $end
+$var reg 1 ( expected $end
+$var reg 384 ) test_name [383:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#86000
+$dumpvars
+b1100011011000010111000001110100011101010111001001100101001000000110000101100110011101000110010101110010001000000110000101110011011110010110111001100011011010000111001001101111011011100110111101110101011100110010000001110010011001010111001101100101011101000010000001110010011001010110110001100101011000010111001101100101 )
+1(
+b0 '
+1&
+0%
+1$
+1#
+1"
+1!
+$end

@@ -1,4 +1,4 @@
-`timescale 1ns/1ps
+
 module onebit_D (
     input  wire clk,
     input  wire reset,
