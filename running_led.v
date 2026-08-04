@@ -11,10 +11,11 @@ module running_led (
 always @(posedge clk) begin
     if (reset)
         led <= 8'b0000_0001;
-    else if (enable) begin
-        if (P_Flag)
+    else if (P_Flag)
         led <= P_in;
-        else if (direction)
+    else if (enable) begin
+        
+        if (direction)
             led <= {led[6:0], led[7]};
         else
             led <= {led[0], led[7:1]};
