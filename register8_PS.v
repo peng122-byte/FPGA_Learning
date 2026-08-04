@@ -11,7 +11,7 @@ always @(posedge clk) begin
     if(reset)
         temp <= 8'b00000000;
     else if(load)
-        temp <= {temp[6:0], P_in[7]};
+        temp <= P_in;
     else
         temp <= {temp[6:0], 1'b0};
 
