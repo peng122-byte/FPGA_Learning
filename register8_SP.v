@@ -10,7 +10,7 @@ always @(posedge clk) begin
     if(reset)
         temp <= 8'b00000000;
     else
-    temp <= {temp[6:0], serial_in};
+        temp <= {temp[6:0], serial_in};
 end
 assign P_Out = temp;
 endmodule

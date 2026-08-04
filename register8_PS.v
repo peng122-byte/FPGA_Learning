@@ -13,10 +13,10 @@ always @(posedge clk) begin
     else if(load)
         temp <= P_in;
     else
-        temp <= {temp[6:0], 1'b0};
+        temp <= {1'b0, temp[7:1]};
 
 end
-assign S_out = temp[7];
+assign S_out = temp[0];
 endmodule
 
 
